@@ -1,0 +1,34 @@
+{%extends "clients/base.html"%}
+{%block title%}
+	<h3>{{clientType}}</h3>
+{%endblock%}
+{%block mapScript%}
+	<script>
+		GoogleMaps.addMarker({"type":"{{clientType}}"})
+	</script>
+{%endblock%}
+{%block client-table%}
+	<table class = 'table table-bordered'>
+		<tr>
+			<th>Name</th>
+			<th>Client Type</th>
+			<th>Business Name</th>
+			<th>Loan Amount ($)</th>
+			<th>Repayment Time (months)</th>
+			<th>Email</th>
+			<th>Staff Member</th>
+		</tr>
+	{%for c in clients%}
+		<tr><td>{{c}}</td>
+			<td>{{c.client_type}}</td>
+			<td>{{c.b_name}}</td>
+			<td>{{c.loan_amount}}</td>
+			<td>{{c.repayment_time}}</td>
+			<td>{{c.email}}</td>
+			<td>{{c.staff_member}}</td>
+			<td><a href = "{% url 'clients:edit_client' c.client_uuid %}">Edit Info</a></td>
+			<td id = "delete_client"><a data-uuid = "{{c.client_uuid}}">Delete Client</a></td>
+		</tr>
+	{%endfor%}
+	</table>
+{%endblock%}

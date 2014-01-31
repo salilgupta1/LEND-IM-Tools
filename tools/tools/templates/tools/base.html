@@ -1,0 +1,30 @@
+{% load staticfiles %}
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<link rel = "stylesheet" type = 'text/css' href = "{% static "assets/css/bootstrap.min.css" %}"></link>
+		<script src = "{% static "assets/js/jquery-1.10.2.min.js" %}"></script>
+		<script src = "{% static "assets/js/bootstrap.min.js" %}"></script>
+		<link rel = "stylesheet" type = "text/css" href = "{% static "assets/css/tools/base.css" %}"></link>
+	</head>
+	<body>
+		<div id = "wrap">
+			<div class = 'container'>
+				<div id = "title" class = 'row col-md-12'>
+					{% block title %}
+						<h1>Internal Memory Website</h1>
+					{% endblock %}
+				</div>
+				<div id = "content" class = 'col-md-4 row'>
+					{% block content %}
+					{% endblock %}
+				</div>
+			</div>
+		</div>
+			<div id = 'footer'>
+				<div class = 'container'>
+					<p>© Internal Memory Website is a registered trademark of Salil Gupta. Copyright ©2014. All rights reserved.</p>
+				</div>
+			</div>
+	</body>
+</html>

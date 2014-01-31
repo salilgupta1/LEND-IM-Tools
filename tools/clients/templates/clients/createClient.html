@@ -1,0 +1,94 @@
+{%extends "clients/base.html"%}
+{%block title%}<h3>Create Client</h3>{%endblock%}
+{%block map%}{%endblock%}
+{%block Form%}
+<form role = "form"method = "POST" action = "{%url 'clients:create_client'%}">{%csrf_token%}
+	<div class = 'row form-group'>
+		<div class = 'col-md-4'>
+			<div>
+				{{create_form.first_name.errors|striptags}}
+			</div>
+			{{create_form.first_name.label_tag}}
+			{{create_form.first_name}}
+		</div>
+		<div class = 'col-md-4'>
+			<div>
+				{{create_form.last_name.errors|striptags}}
+			</div>
+			{{create_form.last_name.label_tag}}
+			{{create_form.last_name}}
+		</div>
+	</div>
+	<div class = 'row form-group'>
+		<div class = 'col-md-3'>
+			<div>
+				{{create_form.client_type.errors|striptags}}
+			</div>
+			{{create_form.client_type.label_tag}}
+			{{create_form.client_type}}
+		</div>
+	</div>
+	<div class = 'row form-group'>
+		<div class = 'col-md-6'>
+			<div>
+				{{create_form.b_name.errors|striptags}}
+			</div>
+			{{create_form.b_name.label_tag}}
+			{{create_form.b_name}}
+		</div>
+	</div>
+	<div class = 'row form-group'>
+		<div class = 'col-md-4'>
+			<div>
+				{{create_form.loan_amount.errors|striptags}}
+			</div>
+			{{create_form.loan_amount.label_tag}}
+			{{create_form.loan_amount}}
+		</div>
+		<div class = 'col-md-4'>
+			<div>
+				{{create_form.repayment_time.errors|striptags}}
+			</div>
+			{{create_form.repayment_time.label_tag}}
+			{{create_form.repayment_time}}
+		</div>
+	</div>
+	<div class = 'row form-group'>
+		<div class = 'col-md-6'>
+			<div>
+				{{create_form.email.errors|striptags}}
+			</div>
+			{{create_form.email.label_tag}}
+			{{create_form.email}}
+		</div>
+	</div>
+	<div class = 'row form-group'>
+		<div class = 'col-md-6'>
+			<div>
+				{{create_form.staff_member.errors|striptags}}
+			</div>
+			{{create_form.staff_member.label_tag}}
+			{{create_form.staff_member}}
+		</div>
+	</div>
+	<div class = 'row form-group'>
+		<div class = 'col-md-3'>
+			<div>
+				{{create_form.latitude.errors|striptags}}
+			</div>
+			{{create_form.latitude.label_tag}}
+			{{create_form.latitude}}
+		</div>
+		<div class = 'col-md-3'>
+			<div>
+				{{create_form.longitude.errors|striptags}}
+			</div>
+			{{create_form.longitude.label_tag}}
+			{{create_form.longitude}}
+		</div>
+	</div>
+	<input type = 'submit' value = "Create"/>				
+</form>
+{%endblock%}
+
+

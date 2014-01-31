@@ -1,0 +1,16 @@
+{%extends "tools/base.html"%}
+	{% block title %}<h2>If you are a member of LEND then come and register!</h2>{% endblock %}
+	{%block content%}
+	<form role = 'form' action = "{%url 'register_user'%}" method = "POST" >{%csrf_token%}
+		{% for field in reg_form %}
+	        <div class = 'form-group'>
+	        	<div class = 'error'>
+	        		{{field.errors|striptags}}
+	        	</div>
+	            {{ field.label_tag }}
+	           	{{field}}
+	        </div>
+    	{% endfor %}
+		<button type = 'submit' class = 'btn btn-default'>Register</button>
+	</form>
+	{%endblock%}

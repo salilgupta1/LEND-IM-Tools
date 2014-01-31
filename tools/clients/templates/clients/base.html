@@ -1,0 +1,59 @@
+{% load staticfiles %}
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+		<link rel = "stylesheet" type = 'text/css' href = "{% static "assets/css/bootstrap.min.css" %}"></link>
+		<link rel = "stylesheet" type = "text/css" href = "{% static "assets/css/client/base.css" %}"></link>
+
+		<script src = "{% static "assets/js/jquery-1.10.2.min.js" %}"></script>
+		<script src = "{% static "assets/js/bootstrap.min.js" %}"></script>
+		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBEln8cyA_GuErYfmIB7EgXJIi1xVoiaKo&sensor=true"></script>
+	    <script src = "{% static "assets/js/client/GoogleMaps.js"%}"></script>
+	    <script src = "{% static "assets/js/client/Clients.js"%}"></script>
+	    <script>
+	    	Clients.init();
+	    	google.maps.event.addDomListener(window,"load",GoogleMaps.init);
+	    	//$(window).load(map);
+	    </script>
+	    {%block mapScript%}{%endblock%}
+	</head>
+	<body>
+		<div class = 'row' id ='header'>
+			<div class = 'col-md-10'>
+				<h2> LEND Internal Memory Tools Page</h2>
+			</div>
+			<div class = 'col-md-2'>	
+				<p>Welcome, {{user}} <a href = "{%url 'logOut' %}">Logout</a> </p>
+			</div>
+		</div>
+		<div id = "container">
+			<div class = "row">
+				<div class = 'col-md-2' id = 'sidebar'>
+					<ul class="nav nav-pills nav-stacked">
+						<li><a href = "{%url 'clients:index' %}">Home</a></li>
+						<li><a href = "{%url 'clients:loan' %}">Loan Clients</a></li>
+						<li><a href = "{%url 'clients:btp' %}">BTP Clients</a></li>
+						<li><a href = "{%url 'clients:create_client' %}">Create Client</a></li>
+					</ul>
+				</div>
+				<div class = 'col-md-9' id = 'content'>
+					<div class = ' row' id= 'title'>
+						{%block title%}
+						{%endblock%}
+					</div>
+					{%block map%}
+					<div class = 'row' id = "map-canvas"></div>
+					{%endblock%}
+					<div class = 'row' id = 'client-table'>
+						{%block client-table%}{%endblock%}
+					</div>
+					<div class = 'row' id = 'model_form'>
+						{%block Form%}
+						{%endblock%}
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

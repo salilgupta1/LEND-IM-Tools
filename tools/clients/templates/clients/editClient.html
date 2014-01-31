@@ -1,0 +1,98 @@
+{%extends "clients/base.html"%}
+{%block title%}<h3>{{title}}</h3>{%endblock%}
+
+{%block mapScript%}
+	<script>
+		GoogleMaps.addMarker({"type":"{{uuid}}"})
+	</script>
+{%endblock%}
+
+{%block Form%}
+ <form role = 'form' action = "{%url 'clients:edit_client' uuid%}" method = "POST">{%csrf_token%}
+	<div class = 'row form-group'>
+		<div class = 'col-md-4'>
+			<div>
+				{{model_form.first_name.errors|striptags}}
+			</div>
+			{{model_form.first_name.label_tag}}
+			{{model_form.first_name}}
+		</div>
+		<div class = 'col-md-4'>
+			<div>
+				{{model_form.last_name.errors|striptags}}
+			</div>
+			{{model_form.last_name.label_tag}}
+			{{model_form.last_name}}
+		</div>
+	</div>
+	<div class = 'row form-group'>
+		<div class = 'col-md-3'>
+			<div>
+				{{model_form.client_type.errors|striptags}}
+			</div>
+			{{model_form.client_type.label_tag}}
+			{{model_form.client_type}}
+		</div>
+	</div>
+	<div class = 'row form-group'>
+		<div class = 'col-md-6'>
+			<div>
+				{{model_form.b_name.errors|striptags}}
+			</div>
+			{{model_form.b_name.label_tag}}
+			{{model_form.b_name}}
+		</div>
+	</div>
+	<div class = 'row form-group'>
+		<div class = 'col-md-4'>
+			<div>
+				{{model_form.loan_amount.errors|striptags}}
+			</div>
+			{{model_form.loan_amount.label_tag}}
+			{{model_form.loan_amount}}
+		</div>
+		<div class = 'col-md-4'>
+			<div>
+				{{model_form.repayment_time.errors|striptags}}
+			</div>
+			{{model_form.repayment_time.label_tag}}
+			{{model_form.repayment_time}}
+		</div>
+	</div>
+	<div class = 'row form-group'>
+		<div class = 'col-md-6'>
+			<div>
+				{{model_form.email.errors|striptags}}
+			</div>
+			{{model_form.email.label_tag}}
+			{{model_form.email}}
+		</div>
+	</div>
+	<div class = 'row form-group'>
+		<div class = 'col-md-6'>
+			<div>
+				{{model_form.staff_member.errors|striptags}}
+			</div>
+			{{model_form.staff_member.label_tag}}
+			{{model_form.staff_member}}
+		</div>
+	</div>
+	<div class = 'row form-group'>
+		<div class = 'col-md-3'>
+			<div>
+				{{model_form.latitude.errors|striptags}}
+			</div>
+			{{model_form.latitude.label_tag}}
+			{{model_form.latitude}}
+		</div>
+		<div class = 'col-md-3'>
+			<div>
+				{{model_form.longitude.errors|striptags}}
+			</div>
+			{{model_form.longitude.label_tag}}
+			{{model_form.longitude}}
+		</div>
+	</div>
+ 	<input type = 'submit' value = 'Update'/>
+ </form>
+{%endblock%}

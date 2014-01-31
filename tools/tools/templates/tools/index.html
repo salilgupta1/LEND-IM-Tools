@@ -1,0 +1,17 @@
+{% extends "tools/base.html" %}
+	{% block content %}
+		{%if error %}<p class = 'error'>{{error}}</p>{%endif%}
+		<form role = 'form' action ="{% url 'home_login' %}" method = 'POST'>{% csrf_token %}
+			{% for field in login_form %}
+		        <div class = 'form-group'>
+		        	<div class = 'error'>
+		        		{{field.errors|striptags}}
+		        	</div>
+			    	{{field.label_tag}}
+			    	{{field}}
+		        </div>
+	    	{% endfor %}
+	    	<button type = 'submit' class = 'btn btn-default'>Login</button>
+		</form>
+		<p>A new user? Register <a href = "{%url 'register_user' %}">here</a></p>
+	{% endblock %}

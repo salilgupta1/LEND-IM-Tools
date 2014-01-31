@@ -1,0 +1,32 @@
+{%extends "clients/base.html"%}
+{%block title%}
+	<h3>Client Page</h3>
+{%endblock%}
+{%block mapScript%}
+	<script>
+		GoogleMaps.addMarker({"type":"all"})
+	</script>
+{%endblock%}
+{%block client-table%}
+	<table class = 'table table-bordered'>
+		<tr>
+			<th>Name</th>
+			<th>Client Type</th>
+			<th>Business Name</th>
+			<th>Loan Amount ($)</th>
+			<th>Repayment Time (months)</th>
+			<th>Email</th>
+			<th>Staff Member</th>
+		</tr>
+	{%for c in clients%}
+		<tr><td>{{c}}</td>
+			<td>{{c.client_type}}</td>
+			<td>{{c.b_name}}</td>
+			<td>{{c.loan_amount}}</td>
+			<td>{{c.repayment_time}}</td>
+			<td>{{c.email}}</td>
+			<td>{{c.staff_member}}</td>
+		</tr>
+	{%endfor%}
+	</table>
+{%endblock%}

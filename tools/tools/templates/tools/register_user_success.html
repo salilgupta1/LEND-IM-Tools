@@ -1,0 +1,6 @@
+{%extends "tools/base.html" %}
+
+	{% block title %} <h2>Congratulations {{username}}! You have registered!</h2>{% endblock %}
+	{% block content %}
+		<p>Click here to <a href = "{%url 'home_login'%}">login</a></p>
+	{% endblock %}
