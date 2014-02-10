@@ -51,8 +51,3 @@ def register_user(request):
 def register_user_success(request,username):
 	return render(request,'tools/register_user_success.html',{"username":username})
 
-def register_user_test(request):
-	print request
-
-
-
