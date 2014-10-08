@@ -1,6 +1,7 @@
 from models import Client
 from django import forms
 import uuid
+#adf;laskdjf;askdjf
 
 class ClientForm(forms.ModelForm):
     def __init__(self,*args,**kwargs):
